@@ -1,18 +1,29 @@
-## Getting Started
+## Pseudocode
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+START
 
-## Folder Structure
+  // Create a scanner object to read input from the user
+  PROMPT "Enter the month (1-12): "
+  READ month
 
-The workspace contains two folders by default, where:
+  PROMPT "Enter the year: "
+  READ year
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+  // Validate month input
+  IF month < 1 OR month > 12 THEN
+      DISPLAY "Invalid month."
+  ELSE
+      // Define an array with the number of days in each month (February will be handled later)
+      daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+      // Check if the given year is a leap year
+      IF month == 2 AND (year is divisible by 4 AND (year is not divisible by 100 OR year is divisible by 400)) THEN
+          // If leap year, update February days to 29
+          daysInMonths[1] = 29
+      END IF
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+      // Output the result
+      DISPLAY "Month " + month + " of year " + year + " has " + daysInMonths[month - 1] + " days."
+  END IF
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+END
