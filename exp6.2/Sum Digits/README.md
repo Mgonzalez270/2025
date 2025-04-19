@@ -1,4 +1,3 @@
-## Pseudocode
 BEGIN
 
 FUNCTION sumDigits(n)
@@ -22,3 +21,16 @@ MAIN PROGRAM
         READ number from user
 
         CALL sumDigits(number) and store result in result
+        DISPLAY "The sum of the digits is: " + result
+
+        DISPLAY "Would you like to enter another number? (y/n): "
+        READ choice from user
+        CONVERT choice to lowercase
+
+    WHILE choice is equal to 'y'
+
+    DISPLAY "Thanks for using the program!"
+    CLOSE scanner
+END MAIN
+
+END
