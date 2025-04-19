@@ -1,57 +1,42 @@
 ## Pseudocode
 
-// Method to display three numbers in increasing order
-METHOD displaySortedNumbers(num1, num2, num3)
-  DECLARE min, mid, max AS DOUBLE
+BEGIN
 
-  // Find the minimum
-  IF num1 <= num2 AND num1 <= num3 THEN
-    min = num1
-    IF num2 <= num3 THEN
-      mid = num2
-      max = num3
-    ELSE
-      mid = num3
-      max = num2
+FUNCTION displaySortedNumbers(num1, num2, num3)
+    DECLARE temp
+
+    // Compare and swap if needed to sort the numbers
+    IF num1 > num2 THEN
+        temp ← num1
+        num1 ← num2
+        num2 ← temp
     END IF
-  ELSE IF num2 <= num1 AND num2 <= num3 THEN
-    min = num2
-    IF num1 <= num3 THEN
-      mid = num1
-      max = num3
-    ELSE
-      mid = num3
-      max = num1
+
+    IF num2 > num3 THEN
+        temp ← num2
+        num2 ← num3
+        num3 ← temp
     END IF
-  ELSE
-    min = num3
-    IF num1 <= num2 THEN
-      mid = num1
-      max = num2
-    ELSE
-      mid = num2
-      max = num1
+
+    IF num1 > num2 THEN
+        temp ← num1
+        num1 ← num2
+        num2 ← temp
     END IF
-  END IF
 
-  // Display the sorted numbers
-  DISPLAY min, " ", mid, " ", max
-END METHOD
+    DISPLAY "The numbers in increasing order are: ", num1, ", ", num2, ", ", num3
+END FUNCTION
 
-// Main program
-START
-  // Create a scanner for user input
-  CREATE scanner
+MAIN PROGRAM
+    PROMPT "Enter the first number: "
+    READ num1
 
-  // Prompt the user for three numbers
-  DISPLAY "Enter three numbers: "
-  INPUT num1
-  INPUT num2
-  INPUT num3
+    PROMPT "Enter the second number: "
+    READ num2
 
-  // Call the method to display the sorted numbers
-  CALL displaySortedNumbers(num1, num2, num3)
+    PROMPT "Enter the third number: "
+    READ num3
 
-  // Close the scanner
-  CLOSE scanner
+    CALL displaySortedNumbers(num1, num2, num3)
+
 END
